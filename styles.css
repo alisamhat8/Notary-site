@@ -1,0 +1,108 @@
+/* Minimal, modern styles — no frameworks */
+@font-face {
+  font-family: 'Inter var';
+  src: url('fonts/inter-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root{
+  --bg: #0f1115;
+  --panel: #151923;
+  --panel-alt: #0f131c;
+  --text: #e8ebf2;
+  --muted: #b7c0d1;
+  --brand: #4da3ff;
+  --brand-ink: #001732;
+  --ring: rgba(77,163,255,.35);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --maxw: 1120px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter var", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height:1.55;
+  color:var(--text);
+  background: radial-gradient(1200px 600px at 10% -10%, #1a2333 0%, #0d1118 60%, #0b0e13 100%);
+}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,14,20,.6);backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:700}
+.brand-mark{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#4da3ff 0%,#77baff 100%);color:var(--brand-ink);font-weight:800}
+.nav a{color:var(--text);text-decoration:none;margin-left:16px;padding:10px 12px;border-radius:10px}
+.nav a:hover{background:rgba(255,255,255,.06)}
+
+.hero{padding:64px 0 40px}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}
+.hero-copy h1{font-size:42px;line-height:1.1;margin:0 0 12px}
+.sub{font-weight:500;color:var(--muted);font-size:26px}
+.hero-copy p{color:var(--muted);max-width:60ch}
+.badges{display:flex;gap:12px;list-style:none;padding:0;margin:18px 0 0 0;flex-wrap:wrap}
+.badges li{padding:8px 12px;border:1px solid rgba(255,255,255,.09);border-radius:999px;color:var(--muted);font-size:14px}
+.hero-card .card{height:100%}
+
+.section{padding:60px 0}
+.section.alt{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0))}
+h2{font-size:28px;margin:0 0 16px}
+
+.grid{display:grid;gap:18px}
+.cards{grid-template-columns:repeat(4,1fr)}
+.list-cols{grid-template-columns:repeat(2,1fr)}
+.pricing{grid-template-columns:repeat(3,1fr)}
+.contact-grid{grid-template-columns:1fr 1fr}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow)
+}
+.card h3{margin:0 0 8px}
+.card p{margin:0 0 10px;color:var(--muted)}
+
+.checklist{list-style:none;padding:0;margin:0 0 14px}
+.checklist li{padding-left:26px;position:relative;margin:8px 0;color:var(--muted)}
+.checklist li::before{content:"✓";position:absolute;left:0;top:0;color:var(--brand)}
+
+.price .amount{font-size:26px;margin:4px 0 6px;color:var(--text)}
+
+.btn{
+  display:inline-block;border:1px solid rgba(255,255,255,.12);
+  padding:10px 14px;border-radius:12px;text-decoration:none;color:var(--text);
+  transition:.15s transform ease, .15s background ease, .15s box-shadow ease;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.btn-primary{background:linear-gradient(135deg,#4da3ff 0%,#579aff 60%,#6eb3ff 100%);color:#001732;border-color:transparent}
+.btn-ghost{background:transparent}
+.btn-block{display:block;text-align:center;width:100%}
+
+label{display:block;margin:10px 0}
+input,textarea{
+  width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.02);color:var(--text);outline:none;
+}
+input:focus, textarea:focus{box-shadow:0 0 0 6px var(--ring);border-color:transparent}
+
+.details{list-style:none;padding:0;margin:0}
+.details li{margin:8px 0;color:var(--muted)}
+
+.site-footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.06);margin-top:40px}
+.site-footer p{color:var(--muted);margin:6px 0}
+
+@media (max-width: 920px){
+  .hero-inner{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .list-cols{grid-template-columns:1fr}
+  .pricing{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
